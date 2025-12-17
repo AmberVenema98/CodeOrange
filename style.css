@@ -17,3 +17,10 @@ body {
   font-size: 15px;
   background-color: var(--bg-color);
 }
+
+/* Header */
+.header-bg {
+  background-color: var(--primary-cyan);
+  height: 20vh;
+  width: 100%;
+}
