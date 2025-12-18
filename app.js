@@ -17,7 +17,18 @@ fetch('./data.json')
 
 function showJobs(jobs) {
   // Make container empty
-  jobContainer.innerHTML = '';  
+  jobContainer.innerHTML = ''; 
+  
+  // Filteren
+  const filteredJobs = jobsData.filter(job => {
+    if (activeFilters.length === 0) return true;
+    
+    // Verzamel alle tags van deze job in één lijst
+    const jobTags = [job.role, job.level, ...job.languages, ...job.tools];
+    
+    // Check of ALLE actieve filters in de job tags zitten
+    return activeFilters.every(filter => jobTags.includes(filter));
+  });
 
 // Loop through jobs
   filteredJobs.forEach(job => {
@@ -55,5 +66,21 @@ function showJobs(jobs) {
     jobListContainer.appendChild(jobCard);
   });
 }
+
+// Add filter
+window.addFilter = function(tag) {
+  if (!activeFilters.includes(tag)) {
+    activeFilters.push(tag);
+    updateFilterUI();
+    renderJobs();
+  }
+};
+
+// Delete filter
+window.removeFilter = function(tag) {
+  activeFilters = activeFilters.filter(f => f !== tag);
+  updateFilterUI();
+  renderJobs();
+};
 
 

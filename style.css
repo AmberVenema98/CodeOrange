@@ -12,6 +12,13 @@
   padding: 0;
 }
 
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 24px 70px;
+  position: relative;
+}
+
 body {
   font-family: 'League Spartan', sans-serif;
   font-size: 15px;
