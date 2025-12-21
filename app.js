@@ -14,10 +14,6 @@ fetch('./data.json')
     jobsData = data; 
     console.log(jobsData);
   });
-
-function showJobs(jobs) {
-  // Make container empty
-  jobContainer.innerHTML = ''; 
   
   // Filteren
   const filteredJobs = jobsData.filter(job => {
@@ -63,9 +59,9 @@ function showJobs(jobs) {
       </div>
     `;
 
-    jobListContainer.appendChild(jobCard);
+    jobList.appendChild(jobCard);
   });
-}
+
 
 // Add filter
 window.addFilter = function(tag) {
@@ -91,7 +87,7 @@ function updateFilterUI() {
   }
   
   filterContainer.classList.remove('hidden');
-  filterTagsContainer.innerHTML = activeFilters.map(filter => `
+  filterTags.innerHTML = activeFilters.map(filter => `
     <div class="filter-tablet">
       <span class="filter-name">${filter}</span>
       <button class="remove-btn" onclick="removeFilter('${filter}')">×</button>
