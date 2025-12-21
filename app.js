@@ -86,12 +86,6 @@ window.removeFilter = function(tag) {
 
 // Update filter bar
 function updateFilterUI() {
-  if (activeFilters.length === 0) {
-    filterContainer.classList.add('hidden');
-    return;
-  }
-  
-  filterContainer.classList.remove('hidden');
   filterTags.innerHTML = activeFilters.map(filter => `
     <div class="filter-tablet">
       <span class="filter-name">${filter}</span>
