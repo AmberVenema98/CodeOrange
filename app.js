@@ -83,4 +83,26 @@ window.removeFilter = function(tag) {
   renderJobs();
 };
 
+// Update filter bar
+function updateFilterUI() {
+  if (activeFilters.length === 0) {
+    filterContainer.classList.add('hidden');
+    return;
+  }
+  
+  filterContainer.classList.remove('hidden');
+  filterTagsContainer.innerHTML = activeFilters.map(filter => `
+    <div class="filter-tablet">
+      <span class="filter-name">${filter}</span>
+      <button class="remove-btn" onclick="removeFilter('${filter}')">×</button>
+    </div>
+  `).join('');
+}
+
+// Clear button
+clearBtn.addEventListener('click', () => {
+  activeFilters = [];
+  updateFilterUI();
+  renderJobs();
+});
 
