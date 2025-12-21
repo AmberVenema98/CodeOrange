@@ -12,8 +12,13 @@ fetch('./data.json')
   .then(data => {
     // Getting the data
     jobsData = data; 
-    console.log(jobsData);
-  });
+    showJobs();
+  })
+  .catch(error => console.error('Error with loading:', error));
+
+function showJobs(jobs) {
+  // Make container empty
+  jobList.innerHTML = ''; 
   
   // Filteren
   const filteredJobs = jobsData.filter(job => {
@@ -61,7 +66,7 @@ fetch('./data.json')
 
     jobList.appendChild(jobCard);
   });
-
+}
 
 // Add filter
 window.addFilter = function(tag) {
