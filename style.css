@@ -120,3 +120,89 @@ body {
 .job-card.featured {
   border-left-color: var(--primary-cyan);
 }
+
+.job-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.job-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.company-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.company {
+  color: var(--primary-cyan);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.pill {
+  color: white;
+  border-radius: 0.75em;
+  padding: 0.25em 0.5em 0.2em;
+  font-size: 0.6em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pill.new { background-color: var(--primary-cyan); }
+.pill.featured { background-color: var(--very-dark-gray); }
+
+.position {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--very-dark-gray);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.position:hover {
+  color: var(--primary-cyan);
+}
+
+.details {
+  color: var(--dark-gray);
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.details li::after {
+  content: "•";
+  margin-left: 0.6em;
+}
+
+.details li:last-child::after {
+  content: "";
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.tag {
+  background-color: var(--filter-tablets);
+  color: var(--primary-cyan);
+  font-weight: 700;
+  border: none;
+  padding: 0.5em 0.6em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag:hover {
+  background-color: var(--primary-cyan);
+  color: white;
+}
