@@ -143,7 +143,7 @@ window.addFilter = function(tag) {
 window.removeFilter = function(tag) {
   activeFilters = activeFilters.filter(f => f !== tag);
   updateFilterUI();
-  renderJobs();
+  filterAndShowJobs(); 
 };
 
 // Update filter bar
