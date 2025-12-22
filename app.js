@@ -160,6 +160,7 @@ function updateFilterUI() {
 clearBtn.addEventListener('click', () => {
   activeFilters = [];
   updateFilterUI();
-  renderJobs();
+  updateFilterUI();      
+  filterAndShowJobs();
 });
 
