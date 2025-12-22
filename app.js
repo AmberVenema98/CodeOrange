@@ -13,6 +13,7 @@ fetch('./data.json')
     // Getting the data
     jobsData = data; 
     showJobs();
+    createDropdown(); 
   })
   .catch(error => console.error('Error with loading:', error));
 
@@ -68,12 +69,73 @@ function showJobs(jobs) {
   });
 }
 
+// Dropdown filter
+function createDropdown() {
+  const dropdown = document.getElementById('filter-dropdown');
+  const uniqueTags = new Set();
+
+  // Get new tags
+  jobsData.forEach(job => {
+    uniqueTags.add(job.role);
+    uniqueTags.add(job.level);
+    job.languages.forEach(lang => uniqueTags.add(lang));
+    job.tools.forEach(tool => uniqueTags.add(tool));
+  });
+
+ 
+  const sortedTags = Array.from(uniqueTags).sort();
+
+  sortedTags.forEach(tag => {
+    const option = document.createElement('option');
+    option.value = tag;
+    option.textContent = tag;
+    dropdown.appendChild(option);
+  });
+
+  // Listen to change
+  dropdown.addEventListener('change', (event) => {
+    const selectedTag = event.target.value;
+    
+    if (selectedTag !== "") {
+      addFilter(selectedTag); 
+      event.target.value = ""; 
+    }
+  });
+}
+
+function filterAndShowJobs() {
+  if (activeFilters.length === 0) {
+    showJobs(jobsData);
+    return;
+  }
+
+  // Filter the list
+  const filteredJobs = jobsData.filter(job => {
+    
+    const jobTags = [
+      job.role, 
+      job.level, 
+      ...job.languages, 
+      ...job.tools
+    ];
+
+    const isMatch = activeFilters.every(filter => {
+      return jobTags.includes(filter);
+    });
+
+    return isMatch; 
+  });
+
+  showJobs(filteredJobs);
+}
+
 // Add filter
 window.addFilter = function(tag) {
   if (!activeFilters.includes(tag)) {
     activeFilters.push(tag);
-    updateFilterUI();
-    renderJobs();
+    
+    updateFilterUI();      
+    filterAndShowJobs(); 
   }
 };
 

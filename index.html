@@ -15,11 +15,17 @@
   <main class="container">
     <!-- Filter bar -->
     <div id="filter-container" class="filter-container">
-      <div id="filter-tags" class="filter-tags">
-        <!-- Tags over here -->
-      </div>
-      <!-- Clear button -->
-      <button id="clear-btn" class="clear-btn">Clear</button>
+        <!-- Dropdown filter menu -->
+        <div class="dropdown-container">
+        <select id="filter-dropdown" class="filter-select">
+            <option value="">Filter</option>
+        </select>
+        </div>
+        <div id="filter-tags" class="filter-tags">
+            <!-- Tags over here -->
+        </div>
+        <!-- Clear button -->
+        <button id="clear-btn" class="clear-btn">Clear</button>
     </div>
 
     <!-- List of jobs -->

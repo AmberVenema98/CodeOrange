@@ -70,6 +70,21 @@ body {
   padding: 0.5em 0.5em;
 }
 
+
+
+.filter-select {
+  width: 100%;
+  padding: 1em;
+  font-size: 1.1em;
+  font-family: 'League Spartan', sans-serif;
+  color: var(--very-dark-gray);
+  border: 1px solid var(--primary-cyan);
+  border-radius: 0.7em;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+
 .remove-btn {
   background-color: var(--primary-cyan);
   color: white;
