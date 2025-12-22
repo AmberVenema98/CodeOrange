@@ -178,7 +178,7 @@ body {
 .details {
   color: var(--dark-gray);
   display: flex;
-  gap: 10px;
+  gap: 1em;
   list-style: none;
 }
 
@@ -211,4 +211,40 @@ body {
 .tag:hover {
   background-color: var(--primary-cyan);
   color: white;
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2em 1.5em;
+    margin-top: 1.25em;
+    position: relative;
+  }
+
+  .job-card:hover {
+  transform:none;   
+}
+
+  .job-left {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #B7C4C4;
+    width: 100%;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+  }
+
+  .logo {
+    position: absolute;
+    top: -1.5em;
+    left: 1.5em;
+  }
+  
+  .logo img {
+    width: 50%;
+    height: 50%;
+  }
 }
