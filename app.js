@@ -21,14 +21,13 @@ function showJobs(jobs) {
   // Make container empty
   jobList.innerHTML = ''; 
   
-  // Filteren
+  // Filters
   const filteredJobs = jobsData.filter(job => {
     if (activeFilters.length === 0) return true;
     
-    // Verzamel alle tags van deze job in één lijst
+    // Get all the tags in one list
     const jobTags = [job.role, job.level, ...job.languages, ...job.tools];
     
-    // Check of ALLE actieve filters in de job tags zitten
     return activeFilters.every(filter => jobTags.includes(filter));
   });
 
